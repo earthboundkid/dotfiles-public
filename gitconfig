@@ -1,0 +1,46 @@
+[core]
+	quotepath = false
+	excludesfile = /Users/cjohnson/.gitignore
+	editor = subl -w
+
+[user]
+	name = Carl Johnson
+	email = cjohnson@theatlantic.com
+[credential]
+	helper = osxkeychain
+
+[alias]
+	resolve = mergetool --tool opendiff
+	hist = log --color --graph --pretty=format:'%C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset%n%s' --abbrev-commit
+	ane = commit --amend --no-edit
+	p = add -p
+
+[difftool "filemerge"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+
+[color]
+	ui = true
+	branch = auto
+	diff = auto
+	status = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow
+	frag = green
+	old = black magenta
+	new = white cyan
+[color "status"]
+	added = cyan
+	changed = blue
+	untracked = magenta
+[add]
+	whitespace = fix
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[branch]
+	autosetuprebase = always
