@@ -3,15 +3,6 @@ export LC_CTYPE=en_US.utf-8
 export CLICOLOR=1
 export HISTCONTROL=erasedups
 
-bind "set completion-ignore-case on"
-bind "set show-all-if-ambiguous on"
-
-
-#Tab completion for Git
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
-
 #Git in prompt
 export GIT_PS1_SHOWDIRTYSTATE="1"
 export GIT_PS1_SHOWUPSTREAM="auto"
@@ -26,6 +17,16 @@ unset BOLD UNBOLD STANDOUT UNSTANDOUT
 
 
 #Autocomplete
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
+
+
+#Tab completion for Git
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+#Tab completion for SSH
 _complete_ssh_hosts ()
 {
         COMPREPLY=()
