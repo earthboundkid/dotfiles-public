@@ -45,3 +45,6 @@ _complete_ssh_hosts ()
         return 0
 }
 complete -F _complete_ssh_hosts ssh
+
+#Tab completion for Amazon
+complete -C aws_completer aws
