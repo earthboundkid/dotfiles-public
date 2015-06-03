@@ -44,3 +44,5 @@
 	smudge = git-media-smudge %f
 [branch]
 	autosetuprebase = always
+[diff]
+	algorithm = patience
