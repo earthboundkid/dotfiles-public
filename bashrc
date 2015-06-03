@@ -1,7 +1,9 @@
 #Terminal settings
 export LC_CTYPE=en_US.utf-8
 export CLICOLOR=1
-export HISTCONTROL=erasedups
+export HISTCONTROL=ignoreboth
+export HISTTIMEFORMAT="[%F %T] "
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 #Git in prompt
 export GIT_PS1_SHOWDIRTYSTATE="1"
