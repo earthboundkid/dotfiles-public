@@ -50,3 +50,6 @@ complete -F _complete_ssh_hosts ssh
 
 #Tab completion for Amazon
 complete -C aws_completer aws
+
+#Python
+export PYTHONSTARTUP=$HOME/.pythonstartup.py
