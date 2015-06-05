@@ -23,8 +23,10 @@ atexit.register(readline.write_history_file, histfile)
 
 #Pretty prompt
 import sys
-sys.ps1 = b'\001\033[1m\002>>> \001\033[0m\002'
-sys.ps2 = b'\001\033[1m\002... \001\033[0m\002'
+BOLD = b'\001\033[1m\002'
+RESET = b'\001\033[0m\002'
+sys.ps1 = BOLD + b'>>> ' + RESET
+sys.ps2 = BOLD + b'... ' + RESET
 
 
 #Convenience string functions
