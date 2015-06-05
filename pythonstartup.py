@@ -28,12 +28,19 @@ sys.ps2 = b'\001\033[1m\002... \001\033[0m\002'
 
 
 #Convenience string functions
-cat = ''.join
-catspaces = ' '.join
-catcommas = ', '.join
-catlines = '\n'.join
+__builtins__.cat = ''.join
+__builtins__.catspaces = ' '.join
+__builtins__.catcommas = ', '.join
+__builtins__.catlines = '\n'.join
 
 
 #Nicer help
 import pydoc
 pydoc.pager = pydoc.plainpager
+
+
+# Clean up imports
+for name in list(locals()):
+    if not name.startswith("_"):
+        del locals()[name]
+    del name
