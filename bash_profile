@@ -44,3 +44,7 @@ tabname $(pwd)
 case $- in
    *i*) [ -r $HOME/.bashrc ] && source $HOME/.bashrc
 esac
+
+
+# Import secret keys, if available
+[ -f $HOME/.keys ] && source $HOME/.keys
