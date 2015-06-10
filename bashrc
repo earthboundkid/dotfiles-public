@@ -5,28 +5,32 @@ export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT="[%F %T] "
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
+
+#Tab completion for Git
+if [ -n "$(which brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+
 #Git in prompt
 export GIT_PS1_SHOWDIRTYSTATE="1"
 export GIT_PS1_SHOWUPSTREAM="auto"
+
 
 #Prompt
 BOLD="\[$(tput bold)\]"
 UNBOLD="\[$(tput sgr0)\]"
 STANDOUT="\[$(tput smso)\]"
 UNSTANDOUT="\[$(tput rmso)\]"
-export PS1="$BOLD(\d, \@)$UNBOLD\$(__git_ps1)\n$BOLD[\u@\h:$STANDOUT \w $UNSTANDOUT]$UNBOLD\n$ "
-unset BOLD UNBOLD STANDOUT UNSTANDOUT
+[ -n "$(type -t __git_ps1)" ] && GIT_STATUS='$(__git_ps1)'
+export PS1="$BOLD(\d, \@)$UNBOLD$GIT_STATUS\n$BOLD[\u@\h:$STANDOUT \w $UNSTANDOUT]$UNBOLD\n$ "
+unset BOLD UNBOLD STANDOUT UNSTANDOUT GIT_STATUS
 
 
 #Autocomplete
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
 
-
-#Tab completion for Git
-if [ -n "$(which brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
 
 #Tab completion for SSH
 _complete_ssh_hosts ()
