@@ -1,5 +1,6 @@
 #Aliases
-if [ ls -w ]
+PLATFORM="$(uname)"
+if [ $PLATFORM == "Darwin" ]
 then # This a Mac
   alias "ll"="ls -AlFhew"
 else # This is Linux
