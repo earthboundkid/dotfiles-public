@@ -2,7 +2,12 @@
 [ -r $HOME/.profile ] && source $HOME/.profile
 
 #Aliases
-alias "ll"="ls -Alhew"
+if [ ls -w ]
+then # This a Mac
+  alias "ll"="ls -AlFhew"
+else # This is Linux
+  alias "ll"="ls -alF --color=auto"
+fi
 alias mkdir='mkdir -p'
 # -> Prevents accidentally clobbering files.
 alias rm='rm -i'
