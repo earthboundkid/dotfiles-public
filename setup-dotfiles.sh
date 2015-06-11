@@ -3,7 +3,7 @@ DOT_FILES_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 function backup-file () {
     local SRC="$HOME/.$1"
-    local DST="$HOME/.$1.$(date -j "+%Y-%m-%d %H:%M:%S").bak"
+    local DST="$HOME/.$1.$(date "+%Y-%m-%d %H:%M:%S").bak"
     echo "Backing up $SRC to $DST"
     cp -v "$SRC" "$DST"
 }
