@@ -8,6 +8,7 @@ import readline, rlcompleter
 #I hate the __call__ checks!
 rlcompleter.Completer._callable_postfix = lambda self, val, w: w
 readline.parse_and_bind("tab: complete")
+readline.parse_and_bind("bind ^I rl_complete")  # For libedit readline
 
 
 #History
@@ -22,11 +23,13 @@ atexit.register(readline.write_history_file, histfile)
 
 
 #Pretty prompt
-import sys
-BOLD = b'\001\033[1m\002'
-RESET = b'\001\033[0m\002'
-sys.ps1 = BOLD + b'>>> ' + RESET
-sys.ps2 = BOLD + b'... ' + RESET
+#Only enabled if we have a *real* readline in use
+if not 'libedit' in readline.__doc__:
+    import sys
+    BOLD = b'\001\033[1m\002'
+    RESET = b'\001\033[0m\002'
+    sys.ps1 = BOLD + b'>>> ' + RESET
+    sys.ps2 = BOLD + b'... ' + RESET
 
 
 #Convenience string functions
