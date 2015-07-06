@@ -34,13 +34,6 @@ if not 'libedit' in readline.__doc__:
     sys.ps2 = BOLD + b'... ' + RESET
 
 
-#Convenience string functions
-__builtins__.cat = ''.join
-__builtins__.catspaces = ' '.join
-__builtins__.catcommas = ', '.join
-__builtins__.catlines = '\n'.join
-
-
 #Nicer help
 import pydoc
 pydoc.pager = pydoc.plainpager
@@ -51,3 +44,10 @@ for name in list(locals()):
     if not name.startswith("_"):
         del locals()[name]
     del name
+
+
+#Convenience string functions
+cat = ''.join
+catspaces = ' '.join
+catcommas = ', '.join
+catlines = '\n'.join
