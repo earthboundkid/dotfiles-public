@@ -7,8 +7,10 @@ from __future__ import unicode_literals
 import readline, rlcompleter
 #I hate the __call__ checks!
 rlcompleter.Completer._callable_postfix = lambda self, val, w: w
-readline.parse_and_bind("tab: complete")
-readline.parse_and_bind("bind ^I rl_complete")  # For libedit readline
+if not 'libedit' in readline.__doc__:
+    readline.parse_and_bind("tab: complete")
+else:
+    readline.parse_and_bind("bind ^I rl_complete")  # For libedit readline
 
 
 #History
