@@ -73,7 +73,7 @@ BOLD="\[$(tput bold)\]"
 UNBOLD="\[$(tput sgr0)\]"
 STANDOUT="\[$(tput smso)\]"
 UNSTANDOUT="\[$(tput rmso)\]"
-[ -n "$(type -t __git_ps1)" ] && GIT_STATUS='$(__git_ps1)'
+GIT_STATUS='$(declare -f -F __git_ps1 > /dev/null && __git_ps1)'
 export PS1="$BOLD(\d, \@)$UNBOLD$GIT_STATUS\n$BOLD[\u@\h:$STANDOUT \w $UNSTANDOUT]$UNBOLD\n$ "
 unset BOLD UNBOLD STANDOUT UNSTANDOUT GIT_STATUS
 
