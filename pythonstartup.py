@@ -7,7 +7,11 @@ from __future__ import unicode_literals
 import readline, rlcompleter
 #I hate the __call__ checks!
 rlcompleter.Completer._callable_postfix = lambda self, val, w: w
-if not 'libedit' in readline.__doc__:
+#OS X (but not Homebrew) includes a terrible version of readline in its
+#version of Python. The BSD libedit readline doesn't work with pretty
+#prompt and has a different tab completion syntax.
+is_bsd_readline = 'libedit' in readline.__doc__
+if not is_bsd_readline:
     readline.parse_and_bind("tab: complete")
 else:
     readline.parse_and_bind("bind ^I rl_complete")  # For libedit readline
@@ -26,7 +30,7 @@ atexit.register(readline.write_history_file, histfile)
 
 #Pretty prompt
 #Only enabled if we have a *real* readline in use
-if not 'libedit' in readline.__doc__:
+if not is_bsd_readline:
     import sys
     BOLD = b'\001\033[1m\002'
     RESET = b'\001\033[0m\002'
