@@ -54,7 +54,7 @@ export LC_CTYPE=en_US.utf-8
 export CLICOLOR=1
 export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT="[%F %T] "
-export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a"
 
 
 #Tab completion for Git
