@@ -1,7 +1,10 @@
-# Import paths and other universal environmental variables
-[ -r $HOME/.profile ] && source $HOME/.profile
-
-# Import slow, interactive shell things
 case $- in
-   *i*) [ -r $HOME/.bashrc ] && source $HOME/.bashrc
+    # Interactive shell: Import slow shell things
+    *i*)
+        [ -r $HOME/.bashrc ] && source $HOME/.bashrc
+    ;;
+    # Non-interactive shell: Import paths, universal environmental variables
+    *)
+        [ -r $HOME/.profile ] && source $HOME/.profile
+    ;;
 esac

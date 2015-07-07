@@ -1,3 +1,9 @@
+# Import paths, etc.
+[ -r $HOME/.profile ] && source $HOME/.profile
+
+# Import secret keys, if available
+[ -f $HOME/.keys ] && source $HOME/.keys
+
 #Aliases
 PLATFORM="$(uname)"
 if [ $PLATFORM == "Darwin" ]
@@ -99,6 +105,3 @@ complete -F _complete_ssh_hosts ssh
 
 #Tab completion for Amazon
 complete -C aws_completer aws
-
-# Import secret keys, if available
-[ -f $HOME/.keys ] && source $HOME/.keys
