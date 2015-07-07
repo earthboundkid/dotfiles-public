@@ -8,7 +8,6 @@ export PYTHONIOENCODING="utf-8"
 
 #Go
 export GOPATH="$HOME/Documents/Code/Golang"
-export GOROOT="/usr/local/Cellar/go/1.3"
 
 #Python
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
