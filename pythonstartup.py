@@ -32,10 +32,10 @@ atexit.register(readline.write_history_file, histfile)
 #Only enabled if we have a *real* readline in use
 if not is_bsd_readline:
     import sys
-    BOLD = b'\001\033[1m\002'
-    RESET = b'\001\033[0m\002'
-    sys.ps1 = BOLD + b'>>> ' + RESET
-    sys.ps2 = BOLD + b'... ' + RESET
+    BOLD = '\001\033[1m\002'
+    RESET = '\001\033[0m\002'
+    sys.ps1 = BOLD + '>>> ' + RESET
+    sys.ps2 = BOLD + '... ' + RESET
 
 
 #Nicer help
