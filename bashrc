@@ -4,6 +4,12 @@
 # Import secret keys, if available
 [ -f $HOME/.keys ] && source $HOME/.keys
 
+# If not running interactively, don't do anything else
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 #Aliases
 PLATFORM="$(uname)"
 if [ $PLATFORM == "Darwin" ]
