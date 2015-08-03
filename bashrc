@@ -99,7 +99,7 @@ _complete_ssh_hosts ()
                         sed -e s/,.*//g | \
                         grep -v ^# | \
                         uniq | \
-                        grep -v "\[" ;
+                        grep -v "[\[\|]" ;
                 cat ~/.ssh/config | \
                         grep "^Host " | \
                         awk '{print $2}'
