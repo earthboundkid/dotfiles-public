@@ -10,6 +10,9 @@ case $- in
       *) return;;
 esac
 
+# Import autoenv
+[ -f /usr/local/opt/autoenv/activate.sh ] && source /usr/local/opt/autoenv/activate.sh
+
 #Aliases
 PLATFORM="$(uname)"
 if [ $PLATFORM == "Darwin" ]
