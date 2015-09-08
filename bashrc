@@ -5,7 +5,7 @@
 [ -f $HOME/.keys ] && source $HOME/.keys
 
 # Import other miscellaneous local settings
-[ -f $/.misc ] && source $HOME/.misc
+[ -f $HOME/.misc ] && source $HOME/.misc
 
 # If not running interactively, don't do anything else
 case $- in
