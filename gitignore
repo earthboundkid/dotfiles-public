@@ -46,3 +46,7 @@ tags
 ##########
 .Python
 *.egg-info/
+
+# Autoenv files #
+#################
+.env
