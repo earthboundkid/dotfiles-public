@@ -46,3 +46,5 @@
 	autosetuprebase = always
 [diff]
 	algorithm = patience
+[rebase]
+	autostash = true
