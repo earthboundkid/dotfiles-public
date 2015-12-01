@@ -25,6 +25,8 @@ else # This is Linux
   alias "ll"="ls -alF --color=auto"
 fi
 alias mkdir='mkdir -p'
+# Nice for making noise at the end of a long task, like do-this && bell
+alias bell="echo $'\a'"
 # -> Prevents accidentally clobbering files.
 alias rm='rm -i'
 alias cp='cp -i'
