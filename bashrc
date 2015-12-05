@@ -31,6 +31,8 @@ alias bell="echo $'\a'"
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias clear-pyc='find . -name '\''*.pyc'\'' -delete'
+alias clear-empty-dir='find . -type d -empty -delete'
 
 # Dev server aliases
 alias nginx-launch='sudo launchctl start homebrew.mxcl.nginx'
