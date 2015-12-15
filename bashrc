@@ -14,7 +14,7 @@ case $- in
 esac
 
 # Import autoenv
-[ -f /usr/local/opt/autoenv/activate.sh ] && source /usr/local/opt/autoenv/activate.sh
+[ -f ~/.autoenv/activate.sh ] && source ~/.autoenv/activate.sh
 
 #Aliases
 PLATFORM="$(uname)"
