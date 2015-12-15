@@ -55,3 +55,12 @@ cat = ''.join
 catspaces = ' '.join
 catcommas = ', '.join
 catlines = '\n'.join
+
+
+# Import my texttools if they exist...
+try:
+    from texttools.copy_paste import *
+except ImportError:
+    print("Copy-paste not available...")
+else:
+    print("Copy-paste activated")
