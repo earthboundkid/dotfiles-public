@@ -13,9 +13,6 @@ case $- in
       *) return;;
 esac
 
-# Import autoenv
-[ -f ~/.autoenv/activate.sh ] && source ~/.autoenv/activate.sh
-
 #Aliases
 PLATFORM="$(uname)"
 if [ $PLATFORM == "Darwin" ]
@@ -107,6 +104,10 @@ UNSTANDOUT="\[$(tput rmso)\]"
 GIT_STATUS='$(declare -f -F __git_ps1 > /dev/null && __git_ps1)'
 export PS1="$BOLD(\d, \@)$UNBOLD$GIT_STATUS\n$BOLD[\u@\h:$STANDOUT \w $UNSTANDOUT]$UNBOLD\n$ "
 unset BOLD UNBOLD STANDOUT UNSTANDOUT GIT_STATUS
+
+
+# Import autoenv
+[ -f ~/.autoenv/activate.sh ] && source ~/.autoenv/activate.sh
 
 
 #Autocomplete
