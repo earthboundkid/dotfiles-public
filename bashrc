@@ -1,12 +1,6 @@
 # Import paths, etc.
 [ -r $HOME/.profile ] && source $HOME/.profile
 
-# Import secret keys, if available
-[ -f $HOME/.keys ] && source $HOME/.keys
-
-# Import other miscellaneous local settings
-[ -f $HOME/.misc ] && source $HOME/.misc
-
 # If not running interactively, don't do anything else
 case $- in
     *i*) ;;
@@ -137,3 +131,9 @@ complete -F _complete_ssh_hosts ssh
 
 #Tab completion for Amazon
 complete -C aws_completer aws
+
+# Import secret keys, if available
+[ -f $HOME/.keys ] && source $HOME/.keys
+
+# Import other miscellaneous local settings
+[ -f $HOME/.misc ] && source $HOME/.misc
