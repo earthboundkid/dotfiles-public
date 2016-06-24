@@ -5,7 +5,7 @@
 
 [user]
 	name = Carl Johnson
-	email = cmjohnson@pbs.org
+	email = me@carlmjohnson.net
 [credential]
 	helper = osxkeychain
 
@@ -50,3 +50,5 @@
 	autostash = true
 [url "git@github.com:"]
     insteadOf = https://github.com/
+[http]
+	cookiefile = /Users/cjohnson/.gitcookies
