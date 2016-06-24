@@ -57,6 +57,7 @@ function winname {
 tabname $(pwd)
 
 #Terminal settings
+export LANG=en_US
 export LC_CTYPE=en_US.utf-8
 export CLICOLOR=1
 export HISTCONTROL=ignoreboth
