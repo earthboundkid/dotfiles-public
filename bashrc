@@ -1,5 +1,7 @@
+#!/bin/bash
+
 # Import paths, etc.
-[ -r $HOME/.profile ] && source $HOME/.profile
+[[ -r "$HOME"/.profile ]] && source "$HOME"/.profile
 
 # If not running interactively, don't do anything else
 case $- in
@@ -9,10 +11,10 @@ esac
 
 #Aliases
 PLATFORM="$(uname)"
-if [ $PLATFORM == "Darwin" ]; then # This a Mac
-	alias "ll"="ls -AlFhew"
+if [[ "$PLATFORM" == "Darwin" ]]; then # This a Mac
+	alias ll='ls -AlFhew'
 else # This is Linux
-	alias "ll"="ls -alF --color=auto"
+	alias ll='ls -alF --color=auto'
 fi
 alias mkdir='mkdir -p'
 # Nice for making noise at the end of a long task, like do-this && bell
@@ -29,7 +31,7 @@ alias nginx-launch='sudo launchctl start homebrew.mxcl.nginx'
 
 # Pretty tail logs
 function console() {
-	if [[ $# > 0 ]]; then
+	if [[ $# -gt 0 ]]; then
 		query=$(echo "$*" | tr -s ' ' '|')
 		tail -f /var/log/system.log | grep -i --color=auto -E "$query"
 	else
@@ -45,14 +47,14 @@ function cd-finder() {
 
 # Set tab name
 function tabname() {
-	printf "\e]1;$@\a"
+	printf '\e]1;%s\a' "$@"
 }
 
 function winname() {
-	printf "\e]2;$@\a"
+	printf '\e]2;%s\a' "$@"
 }
 
-tabname $(pwd)
+tabname "$(pwd)"
 
 #Terminal settings
 export LANG=en_US
@@ -64,7 +66,7 @@ export PROMPT_COMMAND="history -a"
 
 # From /etc/bashrc on OS X
 # Tell the terminal about the working directory at each prompt.
-if [ "$TERM_PROGRAM" == "Apple_Terminal" ] && [ -z "$INSIDE_EMACS" ]; then
+if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
 	update_terminal_cwd() {
 		# Identify the directory using a "file:" scheme URL,
 		# including the host name to disambiguate local vs.
@@ -78,8 +80,8 @@ if [ "$TERM_PROGRAM" == "Apple_Terminal" ] && [ -z "$INSIDE_EMACS" ]; then
 fi
 
 #Tab completion for Git
-if [ -n "$(which brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-	. $(brew --prefix)/etc/bash_completion
+if [[ -n "$(which brew)" ]] && [[ -f $(brew --prefix)/etc/bash_completion ]]; then
+	source "$(brew --prefix)/etc/bash_completion"
 fi
 
 #Git in prompt
@@ -96,7 +98,7 @@ export PS1="$BOLD(\d, \@)$UNBOLD$GIT_STATUS\n$BOLD[\u@\h:$STANDOUT \w $UNSTANDOU
 unset BOLD UNBOLD STANDOUT UNSTANDOUT GIT_STATUS
 
 # Import autoenv
-[ -f ~/.autoenv/activate.sh ] && source ~/.autoenv/activate.sh
+[[ -f ~/.autoenv/activate.sh ]] && source ~/.autoenv/activate.sh
 
 #Autocomplete
 bind "set completion-ignore-case on"
@@ -117,7 +119,7 @@ _complete_ssh_hosts() {
 			| grep "^Host " \
 			| awk '{print $2}'
 	)
-	COMPREPLY=($(compgen -W "${comp_ssh_hosts}" -- $cur))
+	COMPREPLY=($(compgen -W "${comp_ssh_hosts}" -- "$cur"))
 	return 0
 }
 complete -F _complete_ssh_hosts ssh
@@ -126,7 +128,7 @@ complete -F _complete_ssh_hosts ssh
 complete -C aws_completer aws
 
 # Import secret keys, if available
-[ -f $HOME/.keys ] && source $HOME/.keys
+[[ -f "$HOME"/.keys ]] && source "$HOME"/.keys
 
 # Import other miscellaneous local settings
-[ -f $HOME/.misc ] && source $HOME/.misc
+[[ -f "$HOME"/.misc ]] && source "$HOME"/.misc

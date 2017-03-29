@@ -1,9 +1,12 @@
+#!/bin/bash
+
 # Get the directory that this script file is in
 DOT_FILES_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 function backup-file() {
 	local SRC="$HOME/.$1"
-	local DST="$HOME/.$1.$(date "+%Y-%m-%d %H:%M:%S").bak"
+	local DST
+	DST="$HOME/.$1.$(date '+%Y-%m-%d %H:%M:%S').bak"
 	echo "Backing up $SRC to $DST"
 	cp -v "$SRC" "$DST"
 }
@@ -21,8 +24,8 @@ function backup-and-symlink() {
 		if [ "$HOME/.$1" -ef "$DOT_FILES_DIR/$1" ]; then
 			echo "Already linked $1"
 		else
-			backup-file $1
-			symlink-file $1
+			backup-file "$1"
+			symlink-file "$1"
 		fi
 	else
 		echo "No such file as ~/.$1"
