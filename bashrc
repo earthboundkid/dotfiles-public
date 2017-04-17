@@ -100,6 +100,12 @@ unset BOLD UNBOLD STANDOUT UNSTANDOUT GIT_STATUS
 # Import autoenv
 [[ -f ~/.autoenv/activate.sh ]] && source ~/.autoenv/activate.sh
 
+# Activate pyenv if it exists
+if [[ -n "$(which pyenv)" ]]; then
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
+fi
+
 #Autocomplete
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
