@@ -52,3 +52,5 @@
     insteadOf = https://github.com/
 [http]
 	cookiefile = /Users/cjohnson/.gitcookies
+[fetch]
+	prune = true
