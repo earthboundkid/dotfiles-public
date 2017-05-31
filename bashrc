@@ -84,6 +84,11 @@ if [[ -n "$(which brew)" ]] && [[ -f $(brew --prefix)/etc/bash_completion ]]; th
 	source "$(brew --prefix)/etc/bash_completion"
 fi
 
+# Vi and Emacs are bad
+if [[ -n "$(which micro)" ]]; then
+	export EDITOR='micro'
+fi
+
 #Git in prompt
 export GIT_PS1_SHOWDIRTYSTATE="1"
 export GIT_PS1_SHOWUPSTREAM="auto"
