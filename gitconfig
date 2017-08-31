@@ -54,3 +54,5 @@
 	cookiefile = /Users/cjohnson/.gitcookies
 [fetch]
 	prune = true
+[push]
+	default = current
