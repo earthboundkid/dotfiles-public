@@ -25,6 +25,8 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias clear-pyc='find . -name '\''*.pyc'\'' -delete'
 alias clear-empty-dir='find . -type d -empty -delete'
+alias p='pbpaste'
+alias c='pbcopy'
 
 # Dev server aliases
 alias nginx-launch='sudo launchctl start homebrew.mxcl.nginx'
