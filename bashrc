@@ -68,6 +68,8 @@ export CLICOLOR=1
 export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT="[%F %T] "
 export PROMPT_COMMAND="history -a"
+# For MacOS Catalina+
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # From /etc/bashrc on OS X
 # Tell the terminal about the working directory at each prompt.
