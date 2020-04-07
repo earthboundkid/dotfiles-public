@@ -35,7 +35,7 @@
 	"bold_folder_labels": true,
 	"caret_style": "smooth",
 	"close_windows_when_empty": false,
-	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
+	"color_scheme": "Packages/Solarized Color Scheme/Solarized (light).sublime-color-scheme",
 	"copy_with_empty_selection": true,
 	"create_window_at_startup": false,
 	"default_encoding": "UTF-8",
@@ -68,11 +68,11 @@
 		"__pycache__",
 		".*"
 	],
-	"font_face": "Menlo",
+	"font_face": "Fira Code",
 	"font_options":
 	[
 	],
-	"font_size": 16.0,
+	"font_size": 17.0,
 	"gpu_window_buffer": "auto",
 	"gutter": true,
 	"highlight_line": true,
