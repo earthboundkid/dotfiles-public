@@ -28,6 +28,9 @@ alias clear-empty-dir='find . -type d -empty -delete'
 alias p='pbpaste'
 alias c='pbcopy'
 
+# Shortcut variables
+[[ -f /usr/share/dict/words ]] && export USRDICT=/usr/share/dict/words
+
 # Dev server aliases
 alias nginx-launch='sudo launchctl start homebrew.mxcl.nginx'
 
