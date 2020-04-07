@@ -13,7 +13,8 @@
 	hist = log --color --graph --pretty=format:'%C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset%n%s' --abbrev-commit
 	ane = commit --amend --no-edit
 	p = add -p
-
+	cmp = log --color --graph --pretty=format:'%C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset%n%s' --right-only --boundary origin/master...
+	code-changes = "!git log --format=format: --name-only | egrep -v '^$' | sort | uniq -c | sort -rg | head -10"
 [difftool "filemerge"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
