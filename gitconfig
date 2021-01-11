@@ -1,6 +1,10 @@
 [core]
 	quotepath = false
 	excludesfile = ~/.gitignore
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
 
 [user]
 	name = Carl Johnson
@@ -48,11 +52,21 @@
 	algorithm = patience
 [rebase]
 	autostash = true
+	autosquash = true
 [url "git@github.com:"]
-    insteadOf = https://github.com/
+	insteadOf = https://github.com/
 [http]
 	cookiefile = /Users/cjohnson/.gitcookies
 [fetch]
 	prune = true
 [push]
 	default = current
+
+[delta]
+	features = side-by-side line-numbers decorations
+	syntax-theme = Solarized (light)
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
