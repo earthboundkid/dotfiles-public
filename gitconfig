@@ -7,8 +7,8 @@
 	diffFilter = delta --color-only
 
 [user]
-	name = Carl Johnson
-	email = me@carlmjohnson.net
+	name = Carlana Johnson
+	email = mail@carlana.net
 [credential]
 	helper = osxkeychain
 
